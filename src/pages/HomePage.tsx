@@ -1,77 +1,97 @@
-import { useState, useEffect, useRef } from 'react';
 import { useProduct } from '../store/product-context';
+import { Link } from 'react-router-dom';
 
-import ProductBox from '../components/ProductBox';
+import { HiArrowSmRight } from 'react-icons/hi';
 
 const HomePage = () => {
-  const { getProductList, productList, error } = useProduct();
-
-  const categoryRef = useRef<HTMLSelectElement>(null);
-  const [selectedCategory, setSelectedCategory] = useState('All Categories');
-
-  useEffect(() => {
-    getProductList();
-  }, []);
-
-  console.log(error);
-
-  const filterHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(categoryRef.current!.value);
-  };
-
-  const filteredList = productList.filter(
-    (product) => product.category === selectedCategory
-  );
-
-  const list =
-    selectedCategory === 'All Categories' ? productList : filteredList;
+  const { getCategory } = useProduct();
 
   return (
-    <>
-      <div className="my-8">
-        <div className="mx-auto ">
-          <div className="flex justify-between items-center w-full ">
-            <div>
-              <label htmlFor="category" className="sr-only">
-                Category
-              </label>
-              <select
-                id="category"
-                name="category"
-                required
-                className="relative block w-full px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-md focus:outline-none focus:ring-lime-500 focus:border-lime-500 focus:z-10 sm:text-sm"
-                placeholder="Select Category"
-                ref={categoryRef}
-                defaultValue="All Categories"
-                onChange={filterHandler}
-              >
-                <option>All Categories </option>
-                <option value="men's clothing">Men's Clothing</option>
-                <option value="jewelery">Jewelery</option>
-                <option value="electronics">Electronics</option>
-                <option value="women's clothing">Women's Clothing</option>
-              </select>
+    <div className="max-w-7xl mx-auto mb-8 ">
+      <div className="max-w-2xl mx-auto py-4 px-2 lg:max-w-none">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-bold text-gray-900">Shop by Category</h2>
+          <Link to="/shop">
+            <div className="flex  text-slate-700 items-center">
+              <p className="mr-2 font-semibold">Browse all categories </p>
+              <HiArrowSmRight className="w-5 h-5" />
             </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 ">
-            {list.length > 0 ? (
-              list.map((product) => (
-                <ProductBox product={product} key={product.id} />
-              ))
-            ) : (
-              <p className="text-xl font-bold tracking-tight text-gray-900">
-                {!error
-                  ? selectedCategory !== 'All Categories'
-                    ? 'No Products in this category'
-                    : 'Loading...'
-                  : error}
-              </p>
-            )}
-          </div>
+          </Link>
         </div>
       </div>
-    </>
+      <Link to="/shop">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-auto relative">
+          <div
+            onClick={() => {
+              getCategory("Women's clothing");
+            }}
+            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-2 hover:opacity-75 "
+          >
+            <img
+              src="https://source.unsplash.com/Tw9iB8TGRGI"
+              alt="Women's clothing"
+              className="w-full h-full object-center brightness-90 object-cover"
+            />
+            <div className=" absolute z-10 bottom-6 left-10">
+              <h2 className="text-xl text-slate-900 font-semibold title-font mb-2">
+                Women's Clothing{' '}
+              </h2>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              getCategory('Jewelery');
+            }}
+            className="  relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1 hover:opacity-75 "
+          >
+            <img
+              src="https://source.unsplash.com/CCpQ12CZ2Pc"
+              alt="Women's clothing"
+              className="w-full h-full object-center brightness-90 object-cover"
+            />
+            <div className=" absolute z-10 bottom-6 left-10">
+              <h2 className="text-xl text-slate-900 font-semibold  title-font mb-2">
+                Jewelery
+              </h2>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              getCategory('Electronics');
+            }}
+            className=" relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1 hover:opacity-75 "
+          >
+            <img
+              src="https://source.unsplash.com/WuFjNk7hu7g"
+              alt="Women's clothing"
+              className="w-full h-full object-center brightness-90 object-cover"
+            />
+            <div className=" absolute z-10 bottom-6 left-10">
+              <h2 className="text-xl text-slate-900 font-semibold  title-font mb-2">
+                Electronics
+              </h2>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              getCategory("Men's clothing");
+            }}
+            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-2 hover:opacity-75 "
+          >
+            <img
+              src="https://source.unsplash.com/Nv4QHkTVEaI"
+              alt="Women's clothing"
+              className="w-full h-full object-center brightness-90 object-cover"
+            />
+            <div className=" absolute z-10 bottom-6 left-10">
+              <h2 className="text-xl text-slate-900 font-semibold title-font mb-2">
+                Men's Clothing{' '}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 };
 

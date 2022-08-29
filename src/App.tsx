@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ErrorPage from './pages/ErrorPage';
 
@@ -12,6 +13,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
