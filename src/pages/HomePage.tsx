@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import { HiArrowSmRight } from 'react-icons/hi';
 
 const HomePage = () => {
-  const { getCategory } = useProduct();
+  const { getCategory, category } = useProduct();
+
+  const activeCategory = category;
+  console.log(activeCategory);
 
   return (
     <div className="max-w-7xl mx-auto mb-8 ">
@@ -12,10 +15,15 @@ const HomePage = () => {
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold text-gray-900">Shop by Category</h2>
           <Link to="/shop">
-            <div className="flex  text-slate-700 items-center">
+            <button
+              onClick={() => {
+                getCategory('All categories');
+              }}
+              className="flex  text-slate-700 items-center"
+            >
               <p className="mr-2 font-semibold">Browse all categories </p>
               <HiArrowSmRight className="w-5 h-5" />
-            </div>
+            </button>
           </Link>
         </div>
       </div>
