@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useProduct } from '../store/product-context';
 
 import ProductBox from '../components/ProductBox';
@@ -25,7 +25,7 @@ const ShopPage = () => {
   ];
 
   const activeButtonStyle =
-    'border text-sm hover:border-slate-500 border-slate-200 py-2 px-6  rounded-lg text-white bg-slate-500 mt-4 md:mt-0  font-semibold ';
+    'border text-sm hover:border-slate-500 border-slate-200 py-2 px-6  rounded-lg text-white bg-slate-500 mt-4 md:mt-0 hover:text-slate-700 font-semibold ';
   const buttonStyle =
     'border text-sm hover:border-slate-500 border-slate-200 text-slate-500 py-2 px-6 rounded-lg mt-4 md:mt-0 hover:text-slate-700 font-semibold ';
 

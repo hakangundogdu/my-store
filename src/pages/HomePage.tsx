@@ -28,12 +28,12 @@ const HomePage = () => {
         </div>
       </div>
       <Link to="/shop">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-auto relative">
+        <div className="grid grid-cols-1  md:grid-cols-3 gap-4 mx-auto relative">
           <div
             onClick={() => {
               getCategory("Women's clothing");
             }}
-            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-2 hover:opacity-75 "
+            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1 md:col-span-2 hover:opacity-75 "
           >
             <img
               src="https://source.unsplash.com/Tw9iB8TGRGI"
@@ -43,6 +43,23 @@ const HomePage = () => {
             <div className=" absolute z-10 bottom-6 left-10">
               <h2 className="text-xl text-slate-900 font-semibold title-font mb-2">
                 Women's Clothing{' '}
+              </h2>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              getCategory("Men's clothing");
+            }}
+            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1 md:col-span-2 md:order-4 hover:opacity-75 "
+          >
+            <img
+              src="https://source.unsplash.com/Nv4QHkTVEaI"
+              alt="Women's clothing"
+              className="w-full h-full object-center brightness-90 object-cover"
+            />
+            <div className=" absolute z-10 bottom-6  left-10">
+              <h2 className="text-xl text-slate-900 font-semibold title-font mb-2">
+                Men's Clothing{' '}
               </h2>
             </div>
           </div>
@@ -63,11 +80,12 @@ const HomePage = () => {
               </h2>
             </div>
           </div>
+
           <div
             onClick={() => {
               getCategory('Electronics');
             }}
-            className=" relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1 hover:opacity-75 "
+            className=" relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-1  hover:opacity-75 "
           >
             <img
               src="https://source.unsplash.com/WuFjNk7hu7g"
@@ -77,23 +95,6 @@ const HomePage = () => {
             <div className=" absolute z-10 bottom-6 left-10">
               <h2 className="text-xl text-slate-900 font-semibold  title-font mb-2">
                 Electronics
-              </h2>
-            </div>
-          </div>
-          <div
-            onClick={() => {
-              getCategory("Men's clothing");
-            }}
-            className="relative max-w-2xl lg:max-w-none h-80 bg-gray-300 overflow-hidden rounded-lg col-span-2 hover:opacity-75 "
-          >
-            <img
-              src="https://source.unsplash.com/Nv4QHkTVEaI"
-              alt="Women's clothing"
-              className="w-full h-full object-center brightness-90 object-cover"
-            />
-            <div className=" absolute z-10 bottom-6 left-10">
-              <h2 className="text-xl text-slate-900 font-semibold title-font mb-2">
-                Men's Clothing{' '}
               </h2>
             </div>
           </div>
