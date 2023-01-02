@@ -5,7 +5,7 @@ import { Product } from '../type';
 interface Props {
   children: React.ReactNode;
 }
-const API_BASE_URL = 'https://property-test.herokuapp.com/products/';
+const API_BASE_URL = 'https://adventurous-hem-tuna.cyclic.app/products/';
 
 type ProductContextType = {
   getProductList: () => void;

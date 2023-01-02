@@ -1,13 +1,17 @@
+import { useEffect } from 'react';
 import { useProduct } from '../store/product-context';
 import { Link } from 'react-router-dom';
 
 import { HiArrowSmRight } from 'react-icons/hi';
 
 const HomePage = () => {
-  const { getCategory, category } = useProduct();
+  const { getProductList, getCategory, category } = useProduct();
+
+  useEffect(() => {
+    getProductList();
+  }, []);
 
   const activeCategory = category;
-  console.log(activeCategory);
 
   return (
     <div className="max-w-7xl mx-auto mb-8 ">
